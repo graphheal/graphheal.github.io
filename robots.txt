@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://graphheal.github.io/sitemap.xml 
