@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graph-Heal | Architecture</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Graph-Heal</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="architecture.html" class="active">Architecture</a></li>
+        <li><a href="docs.html">Docs</a></li>
+        <li><a href="community.html">Community</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content">
+    <section class="hero small">
+      <h1>Core Architecture</h1>
+      <p>Understand how Graph-Heal pieces fit together.</p>
+    </section>
+
+    <section class="section diagram-section">
+      <div class="diagram-container">
+        <!-- Embedded Mermaid diagram -->
+        <pre class="mermaid">
+          graph TD
+            subgraph Monitoring
+              SM(Service Monitor) --> Metrics[
+                "Prometheus / psutil" ]
+            end
+            Metrics -->|push| GH[Graph-Heal Core]
+            GH --> SD[Statistical Detector]
+            GH --> GD[Graph Anomaly Detector]
+            SD --> HM(Health Manager)
+            GD --> HM
+            HM --> RO(Recovery Orchestrator)
+            RO -->|actions| INFRA(["K8s / Balancer / Custom Hooks"])
+            RO -->|update| HM
+        </pre>
+      </div>
+      <noscript>Enable JavaScript to view the architecture diagram.</noscript>
+      <p class="caption">Figure: High-level flow from metrics ingestion to automated recovery.</p>
+    </section>
+
+    <section class="section">
+      <h2>Component Breakdown</h2>
+      <h3>Service Graph Model</h3>
+      <p>Represents microservice dependencies in real-time, annotating each node with health metrics and each edge with traffic counts.</p>
+
+      <h3>Anomaly Detectors</h3>
+      <ul>
+        <li><strong>Statistical Detector</strong>: threshold & statistical rule-based checks.</li>
+        <li><strong>Graph Detector</strong>: assesses neighboring services for anomalies & unusual traffic patterns.</li>
+      </ul>
+
+      <h3>Health Manager</h3>
+      <p>Aggregates results, transitions service states, and records propagation history for later analysis.</p>
+
+      <h3>Recovery Orchestrator</h3>
+      <p>Chooses & executes isolation, circuit-break, scaling, or rerouting strategies via pluggable infrastructure adapters.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Graph-Heal • <a href="https://github.com/your-org/graph-heal">GitHub</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html> 

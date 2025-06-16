@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graph-Heal | Features</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Graph-Heal</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html" class="active">Features</a></li>
+        <li><a href="architecture.html">Architecture</a></li>
+        <li><a href="docs.html">Docs</a></li>
+        <li><a href="community.html">Community</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content">
+    <section class="hero small">
+      <h1>Feature Highlights</h1>
+      <p>Dive deeper into what makes Graph-Heal stand out.</p>
+    </section>
+
+    <section class="section">
+      <h2>Advanced Detection 📈</h2>
+      <p>Graph-Heal combines statistical thresholds with graph-based dependency analysis. This hybrid approach detects anomalies that propagate through call chains, catching issues before they manifest as customer-facing downtime.</p>
+      <ul>
+        <li>Statistical detectors (z-score, EWMA, change point)</li>
+        <li>Graph-aware context (upstream/downstream health)</li>
+        <li>Traffic-pattern outlier detection</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Automated Healing 🤖</h2>
+      <p>Once an anomaly is confirmed, Graph-Heal orchestrates the right recovery action.</p>
+      <ul>
+        <li>Isolation & circuit breakers to contain blast radius</li>
+        <li>Dynamic scaling for resource exhaustion</li>
+        <li>Load balancing & intelligent rerouting</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Chaos-Ready 🧪</h2>
+      <p>Validate your resiliency plans with built-in fault injection.</p>
+      <ul>
+        <li>REST API to schedule host/service faults</li>
+        <li>Integration with your CI/CD pipeline for automated chaos tests</li>
+        <li>Pluggable fault simulators (CPU burn, network latency, pod kill)</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Observability & Metrics 📊</h2>
+      <p>Out-of-the-box support for Prometheus & psutil plus detailed propagation logs for root-cause analysis.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Graph-Heal • <a href="https://github.com/your-org/graph-heal">GitHub</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html> 

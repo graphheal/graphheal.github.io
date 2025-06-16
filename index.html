@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graph-Heal | Resilient Microservice Fault Recovery</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Graph-Heal</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="architecture.html">Architecture</a></li>
+        <li><a href="docs.html">Docs</a></li>
+        <li><a href="community.html">Community</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Graph-Heal</h1>
+    <p class="tagline">Open-source fault-detection & automated healing for cloud-native microservices.</p>
+    <a href="https://pypi.org/project/graph-heal/" class="cta">Get Started →</a>
+  </section>
+
+  <section class="why">
+    <h2>Why Graph-Heal?</h2>
+    <ul class="reasons">
+      <li>
+        <h3>Sees the forest <em>and</em> the trees</h3>
+        <p>Combines metric thresholding with service-dependency graph analysis to detect cascading failures that simple alerts miss.</p>
+      </li>
+      <li>
+        <h3>Automates recovery</h3>
+        <p>Isolate, circuit-break, scale, or reroute traffic automatically—no 3 am pager needed.</p>
+      </li>
+      <li>
+        <h3>Fits your toolchain</h3>
+        <p>Python API, REST interface, CLI scripts—drop Graph-Heal into CI/CD, chaos-engineering, or notebooks in minutes.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="features-preview">
+    <h2>Key Features</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>📈 Advanced Detection</h3>
+        <p>Metric- & dependency-aware anomaly checks with communication-pattern outlier detection.</p>
+      </div>
+      <div class="card">
+        <h3>🤖 Automated Healing</h3>
+        <p>Isolation, circuit breaking, load balancing & dynamic scaling—all configurable.</p>
+      </div>
+      <div class="card">
+        <h3>🧪 Chaos-Ready</h3>
+        <p>Schedule host- or service-level faults via REST to validate resiliency.</p>
+      </div>
+      <div class="card">
+        <h3>📊 Observability</h3>
+        <p>Built-in Prometheus, psutil, and detailed propagation history for root-cause analysis.</p>
+      </div>
+    </div>
+    <a href="features.html" class="link-more">See all features →</a>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Graph-Heal • <a href="https://github.com/your-org/graph-heal">GitHub</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html> 
