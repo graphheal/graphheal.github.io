@@ -44,6 +44,36 @@ gh.add_service("backend", dependencies=["frontend"])
 
 gh.update_metrics("frontend", {"cpu_usage": 45, "latency": 120})
 </code></pre>
+
+      <details class="code-collapse">
+        <summary>Java Quick-Start</summary>
+        <pre><code class="language-java">// 1) Pull in our Maven artifact
+//    &lt;dependency&gt;
+//      &lt;groupId&gt;io.graphheal&lt;/groupId&gt;
+//      &lt;artifactId&gt;graph-heal-client&lt;/artifactId&gt;
+//      &lt;version&gt;0.9.0-rc&lt;/version&gt;
+//    &lt;/dependency&gt;
+
+import io.graphheal.GraphHeal;
+import io.graphheal.ServiceNode;
+import java.util.List;
+import java.util.Map;
+
+public class HealthDemo {
+    public static void main(String[] args) {
+        GraphHeal gh = new GraphHeal();
+        gh.addService("frontend");
+        gh.addService("db", List.of("frontend"));
+
+        // simulate some metrics
+        gh.updateMetrics("frontend", Map.of("cpu_usage", 90.0, "latency", 1200));
+
+        var summary = gh.getHealthSummary();
+        System.out.println(summary);
+    }
+}
+</code></pre>
+      </details>
     </section>
 
     <section class="section">

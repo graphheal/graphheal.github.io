@@ -188,4 +188,21 @@ pre {
 
 code {
   font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+/* Collapsible code block */
+details.code-collapse {
+  margin-top: 1rem;
+}
+
+details.code-collapse summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #5339d6;
+  list-style: none;
+}
+
+/* Hide default triangle */
+details.code-collapse summary::-webkit-details-marker {
+  display: none;
 } 
